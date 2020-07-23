@@ -1,0 +1,138 @@
+@import "./reset.css";
+@import "./_colors.scss";
+@import "./_screens.scss";
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
+
+body {
+  font-family: "Spartan", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  background-color: $main-light-cyan-bg;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.bg-desktop {
+  background: url("../components/images/bg-header-desktop.svg") no-repeat
+    center/cover;
+  background-color: $accent-dark-cyan;
+  height: 100px;
+}
+
+.bg-mobile {
+  background: url("../components/images/bg-header-mobile.svg") no-repeat
+    center/cover;
+  display: none;
+}
+
+/* LIST COMPONENT */
+
+.list {
+  margin-top: 4rem;
+  .list-item {
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: white;
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    .left {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      min-width: 40%;
+      .pic {
+        img {
+          width: 80px;
+          height: 80px;
+        }
+      }
+      .content {
+        width: 100%;
+        height: 80%;
+        margin-left: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .above-title {
+          display: flex;
+          align-items: center;
+          .company {
+            color: $accent-dark-cyan;
+            font-size: 0.9rem;
+
+            margin-right: 0.5rem;
+          }
+          .new-feat {
+            display: flex;
+            p {
+              background-color: $accent-dark-cyan;
+              color: white;
+              padding: 0 0.4rem;
+              padding-top: 0.1rem;
+              line-height: 1rem;
+              font-size: 0.6rem;
+              margin: 0 0.3rem;
+              border-radius: 50px;
+              text-transform: uppercase;
+              font-weight: 700;
+              &.feat {
+                background-color: $main-very-dark-cyan;
+              }
+            }
+          }
+        }
+        .title {
+          h3 {
+            font-weight: 700;
+            letter-spacing: 0.8px;
+          }
+        }
+        .sub-title {
+          width: 100%;
+          ul {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            margin: 0;
+            li {
+              color: $main-dark-cyan;
+              &:first-of-type {
+                list-style-type: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .right {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      .tags {
+        display: flex;
+        p {
+          margin: 0 0.5rem;
+          font-weight: 700;
+          font-size: 0.8rem;
+          color: $accent-dark-cyan;
+          background-color: $main-light-cyan-filter;
+          padding: 0.5rem;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
