@@ -10,7 +10,10 @@ export default function JobsListItem({ listing }) {
   };
 
   return (
-    <div className="list-item" key={listing.id}>
+    <div
+      className={`list-item ${listing.featured && "featured"}`}
+      key={listing.id}
+    >
       <div className="left">
         <div className="pic">
           <img src={require(`${listing.logo}`)} alt="" />
@@ -41,15 +44,33 @@ export default function JobsListItem({ listing }) {
       </div>
       <div className="right">
         <div className="tags">
-          <p onClick={handleFilter}>{listing.role}</p>
-          <p onClick={handleFilter}>{listing.level}</p>
+          <p
+            onClick={handleFilter}
+            className={data.filters.includes(listing.role) && "checked"}
+          >
+            {listing.role}
+          </p>
+          <p
+            onClick={handleFilter}
+            className={data.filters.includes(listing.level) && "checked"}
+          >
+            {listing.level}
+          </p>
           {listing.languages.map((el) => (
-            <p key={el} onClick={handleFilter}>
+            <p
+              key={el}
+              onClick={handleFilter}
+              className={data.filters.includes(el) && "checked"}
+            >
               {el}
             </p>
           ))}
           {listing.tools.map((el) => (
-            <p key={el} onClick={handleFilter}>
+            <p
+              key={el}
+              onClick={handleFilter}
+              className={data.filters.includes(el) && "checked"}
+            >
               {el}
             </p>
           ))}

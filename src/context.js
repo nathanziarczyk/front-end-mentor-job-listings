@@ -10,27 +10,35 @@ export const reducer = (state, { type, payload }) => {
     case "ADD_FILTER":
       if (!state.filters.includes(payload)) {
         const filters = [...state.filters, payload];
-        console.log({ filters });
         const newJobs = state.jobs.filter((job) => {
           return filters.every((filter) => job.ft.includes(filter));
         });
         return {
           ...state,
-          ft: filters,
+          filters,
           jobs: newJobs,
         };
+      } else {
+        const filters = state.filters.filter((filter) => filter !== payload);
+        const newJobs = initialState.jobs.filter((job) => {
+          return filters.every((filter) => job.ft.includes(filter));
+        });
+        return { ...state, filters, jobs: newJobs };
       }
-      return state;
 
     case "REMOVE_FILTER":
-      return state;
+      const filters = state.filters.filter((filter) => filter !== payload);
+      const newJobs = initialState.jobs.filter((job) => {
+        return filters.every((filter) => job.ft.includes(filter));
+      });
+      return { ...state, filters, jobs: newJobs };
 
     case "RESET_FILTER":
-      return state;
+      return { jobs, filters: [] };
 
     default:
       console.error("Action type is niet gedefiniëerd");
-      break;
+      return state;
   }
 };
 
