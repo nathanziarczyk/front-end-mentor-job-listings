@@ -4,7 +4,6 @@ import { Context } from "../App";
 export default function FilterItem({ item }) {
   const [data, dispatch] = useContext(Context);
   const removeFilter = (name) => {
-    console.log("eyp");
     dispatch({ type: "REMOVE_FILTER", payload: name });
   };
   return (
