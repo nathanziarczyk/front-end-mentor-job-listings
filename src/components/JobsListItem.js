@@ -36,7 +36,9 @@ export default function JobsListItem({ listing }) {
           <div className="sub-title">
             <ul>
               <li> {listing.postedAt} </li>
+              <li>•</li>
               <li> {listing.contract} </li>
+              <li>•</li>
               <li> {listing.location} </li>
             </ul>
           </div>
